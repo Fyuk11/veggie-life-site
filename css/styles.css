@@ -414,10 +414,14 @@ section, main {
 
 @media (max-width: 768px) {
   .menu-grid {
-    grid-template-columns: 1fr; /* cada card ocupa todo el ancho */
+    grid-template-columns: 1fr; /* Una columna en móvil */
     gap: 15px;
   }
+  .menu-card {
+    grid-column: span 1; /* Cada card ocupa toda la fila */
+  }
 }
+
 
 /* === VALORES / BENEFICIOS === */
 .values {
@@ -475,6 +479,16 @@ section, main {
 @media (max-width: 640px) {
   .values-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr; /* Cada valor ocupa toda la fila */
+    gap: 15px;
+  }
+  .value-item {
+    grid-column: span 1;
   }
 }
 
@@ -596,6 +610,20 @@ section, main {
   }
 }
 
+@media (max-width: 640px) {
+  .grid-2 {
+    grid-template-columns: 1fr; /* Una columna */
+  }
+  .actions {
+    flex-direction: column; /* Botones apilados */
+    width: 100%;
+  }
+  .actions .btn-primary,
+  .actions .btn-outline {
+    width: 100%;
+  }
+}
+
 
 
 /* ==== Ubicación ==== */
@@ -639,6 +667,16 @@ section, main {
   }
 }
 
+@media (max-width: 768px) {
+  .ubi-grid {
+    grid-template-columns: 1fr; /* Apilados verticalmente */
+    gap: 20px;
+  }
+  .ubi-map iframe {
+    height: 300px; /* Ajustamos alto del mapa */
+  }
+}
+
 
 /* ==== Footer ==== */
 .site-footer {
@@ -679,5 +717,49 @@ section, main {
 @media (max-width: 768px) {
   .section {
     padding: 60px 15px;
+  }
+}
+
+/* =================== Responsive ajustes =================== */
+@media (max-width: 768px) {
+
+  /* --- Menú Destacado --- */
+  .menu-grid {
+    grid-template-columns: 1fr !important; /* una columna en móvil */
+    gap: 15px;
+  }
+  .menu-card {
+    grid-column: span 1 !important;
+  }
+
+  /* --- Nuestros Valores --- */
+  .values-grid {
+    grid-template-columns: 1fr !important; /* un valor por fila */
+    gap: 15px;
+  }
+  .value-item {
+    grid-column: span 1 !important;
+  }
+
+  /* --- Reserva --- */
+  .grid-2 {
+    grid-template-columns: 1fr !important; /* apilar campos */
+  }
+  .actions {
+    flex-direction: column; /* botones uno abajo del otro */
+    width: 100%;
+  }
+  .actions .btn-primary,
+  .actions .btn-outline {
+    width: 100%;
+  }
+
+  /* --- Ubicación / Mapa --- */
+  .ubi-grid {
+    grid-template-columns: 1fr !important; /* apilar mapa e info */
+    gap: 20px;
+  }
+  .ubi-map iframe {
+    height: 300px; /* altura del mapa ajustada */
   }
 }
