@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veggie Life - Comida Saludable</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- AOS (animaciones) -->
+    <link rel="stylesheet" href="css/aos.min.css">
+
+    <!-- Lightbox (galería) -->
+    <link rel="stylesheet" href="css/lightbox.min.css">
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- AOS CSS (en <head>) -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">Veggie Life</div>
+    
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+      <li><a href="#menu-comida">Menú</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="#reservas">Reservas</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- Hero -->
+<section id="inicio" class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="assets/images/hero.mp4" type="video/mp4">
+    Tu navegador no soporta videos de fondo.
+  </video>
+  
+  <div class="hero-content">
+    <h1 data-aos="fade-down">Veggie Life</h1>
+    <p data-aos="fade-right">Comida fresca, saludable y deliciosa</p>
+    <a href="#menu" class="btn-hero">Ver Menú</a>
+  </div>
+</section>
+
+
+
+
+<section id="sobre-nosotros" class="about section">
+  <div class="container about-grid">
+    <div class="about-text" data-aos="fade-right">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        En <strong>Veggie Life</strong> creemos en una cocina 100% plant-based,
+        fresca, de temporada y con proveedores locales. Nuestra misión es
+        acercarte sabores increíbles con impacto positivo en tu salud y el planeta.
+      </p>
+      <p>
+        Cada plato se prepara al momento, con ingredientes reales y técnicas simples
+        que respetan su esencia.
+      </p>
+      <a href="#menu-comida" class="btn btn-primary">Ver menú</a>
+    </div>
+
+    <div class="about-media" data-aos="fade-left">
+      <!-- Usa una imagen tuya en /assets -->
+      <img src="assets/about-veggie.jpg" alt="Cocina veggie fresca y colorida" loading="lazy">
+    </div>
+  </div>
+</section>
+
+
+<section id="menu-comida" class="menu section">
+  <div class="container">
+
+    <div class="menu-head" data-aos="fade-up">
+      <h2>Menú Destacado</h2>
+      <p>Platos plant-based frescos, coloridos y llenos de sabor.</p>
+    </div>
+
+    <!-- Filtros -->
+    <div class="menu-filters" data-aos="fade-up" data-aos-delay="100">
+      <button class="filter-btn active" data-filter="all">Todo</button>
+      <button class="filter-btn" data-filter="bowls">Bowls</button>
+      <button class="filter-btn" data-filter="burgers">Burgers</button>
+      <button class="filter-btn" data-filter="postres">Postres</button>
+      <button class="filter-btn" data-filter="bebidas">Bebidas</button>
+    </div>
+
+    <!-- Contenedor de grilla con flex/grid -->
+    <div class="section-container">
+      <div class="menu-grid">
+        <!-- CARD -->
+        <article class="menu-card" data-category="bowls" data-aos="fade-up">
+          <img src="assets/bowl-verde.jpg" alt="Bowl verde" loading="lazy">
+          <div class="menu-body">
+            <h3>Bowl Verde</h3>
+            <p>Quinoa, kale, palta, pepino, aderezo de tahini-limón.</p>
+            <span class="price">$5.200</span>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="burgers" data-aos="fade-up" data-aos-delay="50">
+          <img src="assets/burger-veggie.jpg" alt="Burger veggie" loading="lazy">
+          <div class="menu-body">
+            <h3>Burger Veggie</h3>
+            <p>Medallón de porotos negros, tomate, lechuga, pan integral.</p>
+            <span class="price">$6.000</span>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="postres" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/cheesecake-vegan.jpg" alt="Cheesecake vegano" loading="lazy">
+          <div class="menu-body">
+            <h3>Cheesecake Vegano</h3>
+            <p>Base de frutos secos, crema de cajú y frutos rojos.</p>
+            <span class="price">$4.300</span>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="bebidas" data-aos="fade-up" data-aos-delay="150">
+          <img src="assets/jugo-verde.jpg" alt="Jugo verde" loading="lazy">
+          <div class="menu-body">
+            <h3>Jugo Verde</h3>
+            <p>Manzana, espinaca, pepino, limón y jengibre.</p>
+            <span class="price">$2.500</span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="menu-cta" data-aos="fade-up" data-aos-delay="150">
+      <a href="#reservas" class="btn btn-secondary">Reservar mesa</a>
+      <a href="https://wa.me/549XXXXXXXXXX?text=Hola!%20Quiero%20hacer%20un%20pedido%20Veggie%20Life" target="_blank" class="btn btn-primary">Hacer pedido</a>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="valores" class="values section">
+  <div class="container">
+    <h2 data-aos="fade-up">Nuestros Valores</h2>
+    <p class="values-sub" data-aos="fade-up" data-aos-delay="80">
+      Cocina honesta, ingredientes reales y respeto por la tierra.
+    </p>
+
+    <div class="values-grid">
+      <div class="value-item" data-aos="zoom-in">
+        <div class="icon">
+          <img src="assets/icons/leaf.svg" alt="" loading="lazy">
+        </div>
+        <h3>100% Plant-Based</h3>
+        <p>Todos nuestros platos son de origen vegetal.</p>
+      </div>
+
+      <div class="value-item" data-aos="zoom-in" data-aos-delay="60">
+        <div class="icon">
+          <img src="assets/icons/farm.svg" alt="" loading="lazy">
+        </div>
+        <h3>Local & de Estación</h3>
+        <p>Trabajamos con productores locales y frutas/verduras de temporada.</p>
+      </div>
+
+      <div class="value-item" data-aos="zoom-in" data-aos-delay="120">
+        <div class="icon">
+          <img src="assets/icons/heart.svg" alt="" loading="lazy">
+        </div>
+        <h3>Saludable</h3>
+        <p>Preparaciones nutritivas, reales y sin ultraprocesados.</p>
+      </div>
+
+      <div class="value-item" data-aos="zoom-in" data-aos-delay="180">
+        <div class="icon">
+          <img src="assets/icons/eco.svg" alt="" loading="lazy">
+        </div>
+        <h3>Sustentable</h3>
+        <p>Minimizamos desperdicios y elegimos empaques responsables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios" class="section testimonials">
+  <div class="container">
+    <h2 class="sec-title" data-aos="fade-up">Lo que dicen de nosotros</h2>
+
+    <!-- Carrusel horizontal (mobile) / Grid (desktop) -->
+    <div class="testi-track" data-aos="fade-up" data-aos-delay="150">
+      <article class="testi-card">
+        <div class="testi-stars" aria-label="5 estrellas">★★★★★</div>
+        <p>“Sabores increíbles y frescos. Mi lugar veggie favorito.”</p>
+        <div class="testi-author">
+          <img src="assets/avatars/1.jpg" alt="Avatar de Ana" loading="lazy">
+          <div>
+            <h4>Ana R.</h4>
+            <span>Cliente frecuente</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>“El bowl de quinoa es un 10/10. Atención rápida y amable.”</p>
+        <div class="testi-author">
+          <img src="assets/avatars/2.jpg" alt="Avatar de Martín" loading="lazy">
+          <div>
+            <h4>Martín G.</h4>
+            <span>Google Reviews</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testi-card">
+        <div class="testi-stars">★★★★☆</div>
+        <p>“Opciones sin TACC riquísimas. Volveré con amigos.”</p>
+        <div class="testi-author">
+          <img src="assets/avatars/3.jpg" alt="Avatar de Paula" loading="lazy">
+          <div>
+            <h4>Paula V.</h4>
+            <span>Cliente</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>“Ambiente hermoso y platos muy bien presentados.”</p>
+        <div class="testi-author">
+          <img src="assets/avatars/4.jpg" alt="Avatar de Diego" loading="lazy">
+          <div>
+            <h4>Diego M.</h4>
+            <span>Maps</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Flechas para mobile -->
+    <div class="testi-arrows">
+      <button class="testi-prev" aria-label="Anterior">‹</button>
+      <button class="testi-next" aria-label="Siguiente">›</button>
+    </div>
+  </div>
+</section>
+
+<section id="reservas" class="section reservas">
+  <div class="container">
+    <h2 class="sec-title" data-aos="fade-up">Reservá tu mesa</h2>
+
+    <form id="reservaForm" class="reserva-form" data-aos="fade-up" data-aos-delay="100" novalidate>
+      <div class="field">
+        <label for="nombre">Nombre y Apellido</label>
+        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+      </div>
+
+      <div class="field">
+        <label for="tel">Teléfono (WhatsApp)</label>
+        <input id="tel" name="tel" type="tel" inputmode="tel" placeholder="+54 9 11..." required>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="fecha">Fecha</label>
+          <input id="fecha" name="fecha" type="date" required>
+        </div>
+        <div class="field">
+          <label for="hora">Hora</label>
+          <input id="hora" name="hora" type="time" min="11:30" max="23:00" required>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="personas">Personas</label>
+          <input id="personas" name="personas" type="number" min="1" max="12" value="2" required>
+        </div>
+        <div class="field">
+          <label for="email">Email (opcional)</label>
+          <input id="email" name="email" type="email" placeholder="tu@email.com">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="mensaje">Comentarios (opcional)</label>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Ej: mesa cerca de la ventana"></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn-primary">Enviar solicitud</button>
+        <a id="btnWA" class="btn-outline" href="#" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+      </div>
+
+      <p class="form-note">Al enviar, aceptás nuestras <a href="#">políticas de reserva</a>.</p>
+    </form>
+  </div>
+</section>
+
+<section id="ubicacion" class="section ubicacion">
+  <div class="container">
+    <div class="ubi-grid">
+      <div class="ubi-map" data-aos="fade-right">
+        <!-- Reemplazar el src por el de tu negocio (lo dejás para el readme) -->
+        <iframe
+          title="Mapa de ubicación"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!...tu_embed..."
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="ubi-info" data-aos="fade-left">
+        <h3>¿Dónde estamos?</h3>
+        <p>Av. Saludable 123, Buenos Aires</p>
+
+        <div class="ubi-hours">
+          <h4>Horarios</h4>
+          <ul>
+            <li><span>Lun a Vie</span><b>11:30–23:00</b></li>
+            <li><span>Sáb</span><b>12:00–00:00</b></li>
+            <li><span>Dom</span><b>12:00–22:30</b></li>
+          </ul>
+        </div>
+
+        <div class="ubi-cta">
+          <a class="btn-primary" href="https://maps.google.com/?q=Veggie+Life" target="_blank" rel="noopener">
+            Abrir en Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="f-col">
+      <h4>Veggie Life</h4>
+      <p>Comida fresca, consciente y deliciosa. Hecha con ingredientes de estación.</p>
+      <div class="f-social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <div class="f-col">
+      <h5>Secciones</h5>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="#menu-comida">Menú</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#reservas">Reservas</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="mailto:contacto@veggielife.com">contacto@veggielife.com</a></li>
+        <li><a href="https://wa.me/549XXXXXXXXXX" target="_blank" rel="noopener">+54 9 11 0000-0000</a></li>
+      </ul>
+      <small>© <span id="year"></span> Veggie Life</small>
+    </div>
+  </div>
+</footer>
+
+
+<!--
+    <section id="inicio" class="section">
+        <h2>Inicio</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis.</p>
+    </section>
+
+    <section id="menu" class="section">
+        <h2>Menú</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis.</p>
+    </section>
+
+    <section id="galeria" class="section">
+        <h2>Galería</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis.</p>
+    </section>
+
+    <section id="contacto" class="section">
+        <h2>Contacto</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis.</p>
+    </section>
+
+     <section>
+        <h2 data-aos="fade-right">Bienvenido</h2>
+        <p data-aos="fade-left">Prueba lo mejor de la cocina vegetariana con ingredientes frescos y de temporada.</p>
+    </section>
+  -->
+</main>
+
+
+
+
+
+    <!-- Scripts -->
+     <!-- AOS JS (antes de </body>, y ANTES de tu main.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+    <script src="js/aos.min.js" defer></script>
+    <script src="js/lightbox.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
