@@ -1,13 +1,3 @@
-/*document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar AOS
-    AOS.init({
-        duration: 1200,
-        once: true
-    });
-
-    console.log("Veggie Life listo 🍃");
-});
-*/
 document.addEventListener('DOMContentLoaded', () => {
   if (window.AOS) {
     AOS.init({
@@ -48,25 +38,31 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Filtro de categorías en Menú
-document.addEventListener('DOMContentLoaded', () => {
-  const btns = document.querySelectorAll('.menu .filter-btn');
-  const cards = document.querySelectorAll('.menu .menu-card');
+// ===== FILTRO DEL MENÚ DESTACADO =====
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const menuItems = document.querySelectorAll(".menu-card");
 
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Quitar la clase activa de todos los botones
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
 
-      const filter = btn.getAttribute('data-filter');
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        const show = (filter === 'all') || (cat === filter);
-        card.style.display = show ? '' : 'none';
+      const filterValue = btn.getAttribute("data-filter");
+
+      menuItems.forEach(item => {
+        const category = item.getAttribute("data-category");
+        if (filterValue === "all" || filterValue === category) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
       });
     });
   });
 });
+
 
 // Testimonios – scroll con flechas en mobile
 (() => {
