@@ -152,3 +152,20 @@ filterButtons.forEach(btn => {
     });
   });
 });
+
+
+// Siempre al cargar la página, ir al top
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
+// Smooth scroll para cualquier enlace interno
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
