@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veggie-life-site.netlify.app/sitemap.xml
