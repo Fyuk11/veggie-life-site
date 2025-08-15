@@ -395,21 +395,6 @@ header.shrink {
   }
 }
 
-/* Solo en PC */
-/*@media (min-width: 900px) {
-  .menu-card img {
-    width: 100%;
-    height: 200px; 
-    object-fit: cover;
-    transition: all 0.3s ease;
-  }
-
-  /* Card seleccionada: solo cambiar borde/sombra, no tamaño *
-  .menu-card.selected {
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    transform: translateY(-4px);
-  }
-} */
  /* Solo en PC */
 @media (min-width: 900px) {
 .menu-card {
