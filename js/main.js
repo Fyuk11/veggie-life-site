@@ -41,7 +41,10 @@ document.addEventListener('click', (e) => {
 // ===== FILTRO DEL MENÚ DESTACADO =====
 document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = document.querySelectorAll(".filter-btn");
-  const menuItems = document.querySelectorAll(".menu-card");
+  //const menuItems = document.querySelectorAll(".menu-card");
+const menuCards = document.querySelectorAll('.menu-card');
+
+
 
   filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -50,19 +53,27 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("active");
 
       const filterValue = btn.getAttribute("data-filter");
-
-      menuItems.forEach(item => {
-        const category = item.getAttribute("data-category");
-        if (filterValue === "all" || filterValue === category) {
-          item.style.display = "block";
-        } else {
-          item.style.display = "none";
-        }
-      });
+       menuCards.forEach(card => {
+  card.addEventListener('click', () => {
+    // Quita clase selected de todas
+    menuCards.forEach(c => c.classList.remove('selected'));
+    // Agrega a la seleccionada
+    card.classList.add('selected');
+  });
+});
+    
     });
   });
 });
 
+const menuItems = document.querySelectorAll('.menu-item');
+
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    menuItems.forEach(i => i.classList.remove('selected'));
+    item.classList.add('selected');
+  });
+});
 
 // Testimonios – scroll con flechas en mobile
 (() => {
@@ -77,186 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 
-// ====== Reservas: min fecha hoy + WhatsApp dinámico + validación ======
-/*(() => {
-  const form = document.getElementById('reservaForm');
-  const fecha = document.getElementById('fecha');
-  const tel = document.getElementById('tel');
-  const btnWA = document.getElementById('btnWA');
-
-  // Fecha mínima = hoy
-  const today = new Date();
-  const toYMD = (d) => d.toISOString().split('T')[0];
-  fecha.min = toYMD(today);
-
-  // Arma el link de WhatsApp con los datos del form
-  const buildWA = () => {
-    const nombre = document.getElementById('nombre').value.trim();
-    const telefonoDestino = '549XXXXXXXXXX'; // <-- Reemplazar por el número del local (con país)
-    const f = fecha.value;
-    const h = document.getElementById('hora').value;
-    const p = document.getElementById('personas').value;
-    const msg = document.getElementById('mensaje').value.trim();
-    const texto = encodeURIComponent(
-      `Hola! Quiero reservar:\n- Nombre: ${nombre}\n- Fecha: ${f}\n- Hora: ${h}\n- Personas: ${p}\n- Comentarios: ${msg || '-'}`
-    );
-    return `https://wa.me/${telefonoDestino}?text=${texto}`;
-  };
-
-  // Actualiza href del botón WA cuando cambian campos
-  form.addEventListener('input', () => { btnWA.href = buildWA(); });
-
-  // Validación básica al enviar (podés integrar EmailJS/Formspree luego)
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Validación simple
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    // Simulación de envío OK
-    alert('¡Solicitud enviada! Te contactaremos para confirmar ✅');
-    form.reset();
-    btnWA.href = '#';
-  });
-
-  // Sanitiza teléfono del usuario (no el del local)
-  tel.addEventListener('input', () => {
-    tel.value = tel.value.replace(/[^\d+ ]/g, '');
-  });
-})();
-*/
-
-// ====== Reservas: WhatsApp dinámico + validación con UX mejorada ======
-/*(() => {
-  const form = document.getElementById('reservaForm');
-  const fecha = document.getElementById('fecha');
-  const tel = document.getElementById('tel');
-  const btnWA = document.getElementById('btnWA');
-  const nombre = document.getElementById('nombre');
-  const hora = document.getElementById('hora');
-  const personas = document.getElementById('personas');
-  const mensaje = document.getElementById('mensaje');
-
-  // Fecha mínima = hoy
-  const today = new Date();
-  fecha.min = today.toISOString().split('T')[0];
-
-  // Deshabilitar WA hasta completar campos obligatorios
-  const validarCampos = () => {
-    return nombre.value.trim() && fecha.value && hora.value && personas.value;
-  };
-
-  const actualizarBotonWA = () => {
-    if (validarCampos()) {
-      const texto = encodeURIComponent(
-        `Hola! Quiero reservar:\n- Nombre: ${nombre.value.trim()}\n- Fecha: ${fecha.value}\n- Hora: ${hora.value}\n- Personas: ${personas.value}\n- Comentarios: ${mensaje.value.trim() || '-'}`
-      );
-      const telefonoDestino = '549XXXXXXXXXX'; // <-- reemplazar por tu número
-      btnWA.href = `https://wa.me/${telefonoDestino}?text=${texto}`;
-      btnWA.classList.remove('disabled');
-      btnWA.removeAttribute('disabled');
-    } else {
-      btnWA.href = '#';
-      btnWA.classList.add('disabled');
-      btnWA.setAttribute('disabled', 'true');
-    }
-  };
-
-  // Sanitizar teléfono del usuario
-  tel.addEventListener('input', () => {
-    tel.value = tel.value.replace(/[^\d+ ]/g, '');
-  });
-
-  // Revisar campos cada vez que cambian
-  form.addEventListener('input', actualizarBotonWA);
-
-  // Validación al enviar formulario
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    alert('¡Solicitud enviada! Te contactaremos para confirmar ✅');
-    form.reset();
-    actualizarBotonWA();
-  });
-
-  // Inicializar botón WA
-  actualizarBotonWA();
-})();
-*/
-
-// ====== Reservas: WhatsApp dinámico + Formspree + validación ======
-// ====== Reservas: min fecha hoy + WhatsApp dinámico + Formspree ======
-/*(() => {
-  const form = document.getElementById('reservaForm');
-  const fecha = document.getElementById('fecha');
-  const tel = document.getElementById('tel');
-  const btnWA = document.getElementById('btnWA');
-  const successDiv = document.getElementById('reserva-success');
-
-  // Fecha mínima = hoy
-  const today = new Date();
-  const toYMD = (d) => d.toISOString().split('T')[0];
-  fecha.min = toYMD(today);
-
-  // Arma el link de WhatsApp con los datos del form
-  const buildWA = () => {
-    const nombre = document.getElementById('nombre').value.trim();
-    const telefonoDestino = '5491121652703'; // <-- Reemplazar por el número del local (con país)
-    const f = fecha.value;
-    const h = document.getElementById('hora').value;
-    const p = document.getElementById('personas').value;
-    const msg = document.getElementById('mensaje').value.trim();
-    const texto = encodeURIComponent(
-      `Hola! Quiero reservar:\n- Nombre: ${nombre}\n- Fecha: ${f}\n- Hora: ${h}\n- Personas: ${p}\n- Comentarios: ${msg || '-'}`
-    );
-    return `https://wa.me/${telefonoDestino}?text=${texto}`;
-  };
-
-  // Actualiza href del botón WA cuando cambian campos
-  form.addEventListener('input', () => { btnWA.href = buildWA(); });
-
-  // Validación y envío a Formspree
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    // Preparar datos para Formspree
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' },
-      });
-
-      if (response.ok) {
-        form.reset();
-        btnWA.href = '#';
-        successDiv.style.display = 'block';
-        setTimeout(() => { successDiv.style.display = 'none'; }, 5000);
-      } else {
-        alert('Hubo un error al enviar la solicitud. Por favor, intentá nuevamente.');
-      }
-    } catch (err) {
-      alert('Error de red. Verificá tu conexión e intentá nuevamente.');
-    }
-  });
-
-  // Sanitiza teléfono del usuario (solo números y +)
-  tel.addEventListener('input', () => {
-    tel.value = tel.value.replace(/[^\d+ ]/g, '');
-  });
-})();
-*/
 // ====== Reservas: min fecha hoy + WhatsApp dinámico + Formspree + habilitación WA ======
 (() => {
   const form = document.getElementById('reservaForm');
@@ -270,15 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const toYMD = (d) => d.toISOString().split('T')[0];
   fecha.min = toYMD(today);
 
-  // Sanitiza teléfono del usuario (solo números y +)
+  // Sanitiza teléfono
   tel.addEventListener('input', () => {
     tel.value = tel.value.replace(/[^\d+ ]/g, '');
   });
 
-  // Arma el link de WhatsApp con los datos del form
+  // Arma el mensaje de WhatsApp
   const buildWA = () => {
     const nombre = document.getElementById('nombre').value.trim();
-    const telefonoDestino = '5491121652703'; // <-- Reemplazar por el número del local
+    const telefonoDestino = '5491121652703'; // Cambiar por número real
     const f = fecha.value;
     const h = document.getElementById('hora').value;
     const p = document.getElementById('personas').value;
@@ -288,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     )}`;
   };
 
-  // Revisa si los campos obligatorios están completos
+  // Chequea campos obligatorios
   const checkRequiredFields = () => {
     const nombre = document.getElementById('nombre').value.trim();
     const t = tel.value.trim();
@@ -298,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return nombre && t && h && p && f;
   };
 
-  // Actualiza botón WA
+  // Actualiza enlace WA
   const updateWAButton = () => {
     if (checkRequiredFields()) {
       btnWA.href = buildWA();
@@ -313,13 +144,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Escucha cambios en todos los campos
+  // Escucha cambios en campos
   form.addEventListener('input', updateWAButton);
 
-  // Inicializa estado WA
+  // 🔹 Forzar actualización al hacer clic
+  btnWA.addEventListener('click', (e) => {
+    if (!checkRequiredFields()) {
+      e.preventDefault();
+      alert('Por favor completá todos los campos obligatorios antes de reservar por WhatsApp.');
+    } else {
+      btnWA.href = buildWA(); // Actualiza el enlace justo antes de abrirlo
+    }
+  });
+
+  // Inicializa
   updateWAButton();
 
-  // Validación y envío a Formspree
+  // Envío a Formspree
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) {
@@ -337,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (response.ok) {
         form.reset();
-        updateWAButton(); // Reinicia WA
+        updateWAButton();
         successDiv.style.display = 'block';
         setTimeout(() => { successDiv.style.display = 'none'; }, 5000);
       } else {
@@ -347,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert('Error de red. Verificá tu conexión e intentá nuevamente.');
     }
   });
+
 })();
 
 
@@ -380,13 +222,35 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-// Smooth scroll para cualquier enlace interno
+// --- Smooth scroll SOLO para anclas internas ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const targetId = this.getAttribute('href');
+    // Ignorar si es solo "#"
+    if (!targetId || targetId === '#') return;
+
+    const targetEl = document.querySelector(targetId);
+    if (targetEl) {
+      e.preventDefault();
+      const header = document.querySelector('header');
+      const offset = header ? header.offsetHeight : 0;
+      const y = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   });
 });
+
+// SCROLL TO TOP
+(() => {
+  const btnTop = document.getElementById('btnTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) btnTop.classList.add('show');
+    else btnTop.classList.remove('show');
+  });
+
+  btnTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+

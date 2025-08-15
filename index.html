@@ -84,7 +84,7 @@
     </div>
 
     <div class="about-media" data-aos="fade-left" data-aos-delay="100">
-      <img src="assets/about-veggie.jpg" alt="Cocina veggie fresca y colorida" loading="lazy">
+      <img src="assets/images/about-veggie.jpg" alt="Cocina veggie fresca y colorida" loading="lazy">
     </div>
   </div>
 </section>
@@ -112,7 +112,7 @@
       <div class="menu-grid">
         <!-- CARD -->
         <article class="menu-card" data-category="bowls" data-aos="fade-up">
-          <img src="assets/bowl-verde.jpg" alt="Bowl verde" loading="lazy">
+          <img src="assets/images/bowl-verde.jpg" alt="Bowl verde" loading="lazy">
           <div class="menu-body">
             <h3>Bowl Verde</h3>
             <p>Quinoa, kale, palta, pepino, aderezo de tahini-limón.</p>
@@ -121,7 +121,7 @@
         </article>
 
         <article class="menu-card" data-category="burgers" data-aos="fade-up" data-aos-delay="50">
-          <img src="assets/burger-veggie.jpg" alt="Burger veggie" loading="lazy">
+          <img src="assets/images/burger-veggie.jpg" alt="Burger veggie" loading="lazy">
           <div class="menu-body">
             <h3>Burger Veggie</h3>
             <p>Medallón de porotos negros, tomate, lechuga, pan integral.</p>
@@ -130,7 +130,7 @@
         </article>
 
         <article class="menu-card" data-category="postres" data-aos="fade-up" data-aos-delay="100">
-          <img src="assets/cheesecake-vegan.jpg" alt="Cheesecake vegano" loading="lazy">
+          <img src="assets/images/cheesecake-vegan.jpg" alt="Cheesecake vegano" loading="lazy">
           <div class="menu-body">
             <h3>Cheesecake Vegano</h3>
             <p>Base de frutos secos, crema de cajú y frutos rojos.</p>
@@ -139,7 +139,7 @@
         </article>
 
         <article class="menu-card" data-category="bebidas" data-aos="fade-up" data-aos-delay="150">
-          <img src="assets/jugo-verde.jpg" alt="Jugo verde" loading="lazy">
+          <img src="assets/images/jugo-verde.jpg" alt="Jugo verde" loading="lazy">
           <div class="menu-body">
             <h3>Jugo Verde</h3>
             <p>Manzana, espinaca, pepino, limón y jengibre.</p>
@@ -151,7 +151,7 @@
 
     <div class="menu-cta" data-aos="fade-up" data-aos-delay="150">
       <a href="#reservas" class="btn btn-secondary">Reservar mesa</a>
-      <a href="https://wa.me/549XXXXXXXXXX?text=Hola!%20Quiero%20hacer%20un%20pedido%20Veggie%20Life" target="_blank" class="btn btn-primary">Hacer pedido</a>
+      <a href="https://wa.me/5491121652703?text=Hola!%20Quiero%20hacer%20un%20pedido%20Veggie%20Life" target="_blank" class="btn btn-primary">Hacer pedido</a>
     </div>
 
   </div>
@@ -291,11 +291,14 @@
   <div class="container">
     <div class="ubi-grid">
       <div class="ubi-map" data-aos="fade-right">
-        <!-- Reemplazar el src por el de tu negocio (lo dejás para el readme) -->
+        <!-- Reemplazar el src por el embed real de tu negocio -->
         <iframe
           title="Mapa de ubicación"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!...tu_embed..."
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+         
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7806.640798381714!2d-58.66706166650251!3d-34.64742562780093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbf5aec0b1833%3A0x452a911cf96ba8f3!2sC.%20Jos%C3%A9%20Mar%C3%ADa%20Paz%2032%2C%20B1714MUB%20Ituzaing%C3%B3%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1755265853583!5m2!1ses!2sar"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
         </iframe>
       </div>
 
@@ -313,7 +316,10 @@
         </div>
 
         <div class="ubi-cta">
-          <a class="btn-primary" href="https://maps.google.com/?q=Veggie+Life" target="_blank" rel="noopener">
+          <a class="btn-primary" 
+             href="https://www.google.com/maps/search/?api=1&query=C. José María Paz 696" 
+             target="_blank" 
+             rel="noopener">
             Abrir en Google Maps
           </a>
         </div>
@@ -321,6 +327,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -350,7 +357,7 @@
     <div class="f-col">
       <h5>Contacto</h5>
       <ul>
-        <li><a href="mailto:contacto@veggielife.com">contacto@veggielife.com</a></li>
+        <li><span href="mailto:contacto@veggielife.com">contacto@veggielife.com</span></li>
         <li><a href="https://wa.me/5491121652703" target="_blank" rel="noopener">+54 9 11 2165-2703</a></li>
       </ul>
       <small>© <span id="year"></span> Veggie Life</small>
@@ -362,6 +369,15 @@
 
 
 
+<!-- BOTON VOLVER ARRIBA -->
+<a href="#top" id="btnTop" class="scroll-top" title="Volver arriba">
+  <img src="assets/icons/arrow-up.svg" alt="Volver arriba">
+</a>
+
+<!-- BOTON A WHATSAPP FLOTANTE-->
+<a href="https://wa.me/5491121652703" target="_blank" rel="noopener" id="whatsapp-float" title="WhatsApp">
+  <img src="assets/icons/whatsapp.svg" alt="WhatsApp">
+</a>
 
 
     <!-- Scripts -->
